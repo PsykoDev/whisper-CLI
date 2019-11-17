@@ -6,6 +6,6 @@
 	"options": {
 		"niceName": "whisper-log",
 		"guiName": "Whisper Log"
-	}
+	},
     "servers": ["https://raw.githubusercontent.com/Xertyn/whisper-log/master/"]
 }
