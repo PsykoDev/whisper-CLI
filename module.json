@@ -1,0 +1,11 @@
+{
+	"disableAutoUpdate": false,
+	"name": "Whisper-log",
+	"author": "Xertyn",
+	"description": "Logs whisper chat in a .txt file in module directory.",
+	"options": {
+		"niceName": "WhisperLog",
+		"guiName": "Whisper Log"
+	}
+    "servers": ["https://raw.githubusercontent.com/Xertyn/whisper-log/master/"]
+}
