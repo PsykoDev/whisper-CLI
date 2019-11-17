@@ -1,8 +1,8 @@
 {
 	"files": {
 		"index.js": "27180cf01ca6f64eaeb7cc9a42bef6936ad7272d9c7c967a2e0eb89a3bb60320",
-		"module.json": "7ad42b7928323cf95a87e45d790b6aa0af34d79b0072b0031c6fc7265533efb3",
-                "README.md": "eefaba198ff4bb86ff9acf79e7894e7deb6f63bfdb5f054039a03a3356f5834c"
+		"module.json": "5868569f266955aeafa1bb912f80049029d7a582f4a39bea0d269c59aa336c9a",
+                "README.md": "ff9f3219a6cf208556689d2e5bbee8db735b3fad9ea1fa28a44fc75b0fbf4ec4"
 	},
 	"defs": {
 		"S_WHISPER": 3
