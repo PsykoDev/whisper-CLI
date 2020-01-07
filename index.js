@@ -1,33 +1,27 @@
 const fs = require('fs'),
       path = require('path')
 
-let uwuname = null;
+let uwuname = null
+	
 
 module.exports = function WhisperCLI(mod) {
 	const {command} = mod.require
 
-	//message account name (your charactername)
 	mod.hook('S_LOGIN',14, (event) => {
-	uwuname = event.name
+	uwuname = event.name,
+	gameId = event.gameId;
 	})
 
 	//message when target is offline
 	mod.hook('S_SYSTEM_MESSAGE',1 , (event) => {
 		if(event.message.includes('@831')) 
-		console.log('Player is not online')
+		console.log('target is offline')
 	  })
 
-
-	//message when target has blocked you
-	mod.hook('S_SYSTEM_MESSAGE',1 , (event) => {
-		if(event.message.includes('@1338')) 
-		console.log('Player has blocked you')
-	  })
-	
 	//whisper incoming
 	mod.hook('S_WHISPER', 3, (event) => {
 		fs.appendFileSync(path.join(__dirname, 'whispers.txt'), `${msgdatetime()} ${event.name} -> ${event.recipient}: ${stripOuterHTML(event.message)}\n`),
-		console.log(('[')+(uwuname)+(']')+('Whisper from')+ " " +('[')+(event.name)+(']')+ " " +('[')+('Message')+(']:')+ " " +stripOuterHTML(event.message))	
+		console.log(('[')+(uwuname)+(']')+('Whisper von')+ " " +('[')+(event.name)+(']')+ " " +('[')+('Nachicht')+(']:')+ " " +stripOuterHTML(event.message))	
 	})
 
 	//whisp command for CLI
@@ -37,6 +31,50 @@ module.exports = function WhisperCLI(mod) {
 		  message: message.join(' ')
 		})
 	  })
+
+	  command.add('guild', (...message)=>{
+		mod.send('C_CHAT', 1, {
+		  channel: 2,
+		  message: message.join(' ')
+		})
+	  })
+
+	  command.add('party', (...message)=>{
+		mod.send('C_CHAT', 1, {
+		  channel: 1,
+		  message: message.join(' ')
+		})
+	  })
+	  var dataArray = new Buffer.alloc(1, Number());
+	  command.add('inv', (target)=>{
+		mod.send('C_REQUEST_CONTRACT', 1, { 
+			target: target,
+            type: 4,
+            name: target,
+            data: dataArray
+		})
+		console.log(('[')+(target)+(']')+('Invited') )	
+	  })
+
+	  command.add('drop', ()=>{
+		mod.send('C_LEAVE_PARTY', 1, {
+		})
+	  })
+
+	  command.add('add', (target, ...message) => {
+		mod.send('C_ADD_FRIEND', 1, {
+			name: target,
+			message: message.join(' ')
+
+		})
+		console.log(('[')+(target)+(']')+('Added') )	
+	})
+	
+	command.add('disband', () => {
+		mod.send('C_DISMISS_PARTY', 1, {})
+	})
+
+	
 
 function stripOuterHTML(str) {
 	return str.replace(/^<[^>]+>|<\/[^>]+><[^\/][^>]*>|<\/[^>]+>$/g, '')

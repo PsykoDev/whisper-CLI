@@ -1,5 +1,5 @@
 {
-    "disableAutoUpdate": false,
+    "disableAutoUpdate": true,
     "name": "whisper-cli",
     "author": "Xertyn | Neko",
     "description": "whisper-CLI",
