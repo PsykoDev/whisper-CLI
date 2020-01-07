@@ -21,7 +21,7 @@ module.exports = function WhisperCLI(mod) {
 	//whisper incoming
 	mod.hook('S_WHISPER', 3, (event) => {
 		fs.appendFileSync(path.join(__dirname, 'whispers.txt'), `${msgdatetime()} ${event.name} -> ${event.recipient}: ${stripOuterHTML(event.message)}\n`),
-		console.log(('[')+(uwuname)+(']')+('Whisper von')+ " " +('[')+(event.name)+(']')+ " " +('[')+('Nachicht')+(']:')+ " " +stripOuterHTML(event.message))	
+		console.log(('[')+(uwuname)+(']')+('Whisper from')+ " " +('[')+(event.name)+(']')+ " " +('[')+('Message')+(']:')+ " " +stripOuterHTML(event.message))		
 	})
 
 	//whisp command for CLI
