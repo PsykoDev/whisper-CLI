@@ -25,11 +25,11 @@
  
   # CMD
   
-  Whiper : whisp 'name' 'message' 
-  Guild : guild 'message'
-  party : party 'message'
-  add friend : add 'name' 'message' 
-  add party : inv 'name'
+  Whiper : whisp 'name' 'message' <br>
+  Guild : guild 'message' <br>
+  party : party 'message' <br>
+  add friend : add 'name' 'message'  <br>
+  add party : inv 'name' <br>
  
  
  # To-Do
